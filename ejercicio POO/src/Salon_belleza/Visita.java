@@ -18,7 +18,7 @@ public class Visita {
         this.importetotal = importe - (importe * descuento);
     }
     public String toString(){
-        return "cliente: "+clien.getNombre()+" fecha: "+fecha+" importe: "+importetotal;
+        return "cliente: "+clien.getNombre()+" fecha: "+fecha+" importe: "+importetotal+" ";
     }
 
 

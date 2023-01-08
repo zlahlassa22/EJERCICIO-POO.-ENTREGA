@@ -3,8 +3,8 @@ package Salon_belleza;
 public class Cliente {
     private String nombre;
     private String DNI;
-     boolean socio;
-     String membresia;
+    private boolean socio;
+    private String membresia;
 
     Cliente(String n, String D,boolean s, String m){
         nombre=n;
@@ -29,6 +29,20 @@ public class Cliente {
     void setDNI(String DNI) {
         this.DNI = DNI;
     }
+    public boolean isSocio() {
+        return socio;
+    }
+    public void setSocio(boolean socio) {
+        this.socio = socio;
+    }
+    public String getMembresia() {
+        return membresia;
+    }
+    public void setMembresia(String membresia) {
+        this.membresia = membresia;
+    }
+
+
     Double getdescuento(){
         if (socio==false){
             return 0.0;

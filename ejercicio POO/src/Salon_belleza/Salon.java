@@ -18,7 +18,7 @@ public class Salon {
     public Cliente getCliente(String DNI){
         for (int i=0;i<maxNumClientes;i++){
             if (clientes[i].getDNI().equals(DNI)){
-                System.out.println("SE HA ENCONTRADO");
+                System.out.println("SE HA ENCONTRADOO");
                 return clientes[i];
             }
         }

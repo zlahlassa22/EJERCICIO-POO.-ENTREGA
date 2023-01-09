@@ -15,7 +15,8 @@ public class Main {
         salon.setmembresia("12345B","oro");
         Date date = new Date(2021, 6, 21);
         salon.anadirVisita("12345A",date,96);
-        salon.
+        salon.mostrarClientes();
+        salon.mostrarVisitas();
     }
 }
 

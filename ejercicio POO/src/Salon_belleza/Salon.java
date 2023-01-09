@@ -74,6 +74,7 @@ public class Salon {
         return Arrays.copyOfRange(visitasCliente, 0, count);
     }
     public void mostrarClientes(){
+
         for (Cliente cliente: clientes){
             System.out.println(clientes.toString());
         }

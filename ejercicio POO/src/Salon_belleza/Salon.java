@@ -18,9 +18,11 @@ public class Salon {
     public Cliente getCliente(String DNI){
         for (int i=0;i<maxNumClientes;i++){
             if (clientes[i].getDNI().equals(DNI)){
+                System.out.println("SE HA ENCONTRADO");
                 return clientes[i];
             }
         }
+        System.out.println("NO SE HA ENCONTRADO");
         return null;
     }
     public void añadircliente(Cliente cliente){
@@ -70,6 +72,16 @@ public class Salon {
             }
         }
         return Arrays.copyOfRange(visitasCliente, 0, count);
+    }
+    public void mostrarClientes(){
+        for (Cliente cliente: clientes){
+            System.out.println(clientes.toString());
+        }
+    }
+    public void mostrarVisitas() {
+        for (Visita visita : visitas) {
+            System.out.println(visita.toString());
+        }
     }
 
 

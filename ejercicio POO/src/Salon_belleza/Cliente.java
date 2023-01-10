@@ -17,31 +17,31 @@ public class Cliente {
         DNI=D;
         socio=false;
     }
-    String getNombre(){
-        return nombre;
-    }
     void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-    String getDNI(){
-        return DNI;
     }
     void setDNI(String DNI) {
         this.DNI = DNI;
     }
-    public boolean isSocio() {
-        return socio;
-    }
     public void setSocio(boolean socio) {
         this.socio = socio;
-    }
-    public String getMembresia() {
-        return membresia;
     }
     public void setMembresia(String membresia) {
         this.membresia = membresia;
     }
+    public String getNombre(){
+        return nombre;
+    }
 
+     public String getDNI(){
+        return DNI;
+    }
+    public boolean getSocio(){
+        return  socio;
+    }
+    public String getMembresia() {
+        return membresia;
+    }
 
     Double getdescuento(){
         if (socio==false){
@@ -60,8 +60,8 @@ public class Cliente {
 
     }
     public String toString(){
-        String estadoSocio = socio ? "sí" : "no";
-        return "Nombre: " + nombre + ", DNI: " + DNI + ", es socio: " + estadoSocio + ", membresía: " + membresia;
+
+        return "Nombre: " + getNombre() + ", DNI: " + getDNI()+ ", es socio? " + getSocio() + ", membresía: " + getMembresia();
     }
 
     }

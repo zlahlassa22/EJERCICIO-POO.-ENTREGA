@@ -15,8 +15,40 @@ public class Salon {
         maxNumVisitas=0;
 
     }
+
+    public void setClientes(Cliente[] clientes) {
+        this.clientes = clientes;
+    }
+
+    public void setVisitas(Visita[] visitas) {
+        this.visitas = visitas;
+    }
+
+    public void setMaxNumClientes(int maxNumClientes) {
+        this.maxNumClientes = maxNumClientes;
+    }
+
+    public void setMaxNumVisitas(int maxNumVisitas) {
+        this.maxNumVisitas = maxNumVisitas;
+    }
+    public Cliente[] getClientes() {
+        return clientes;
+    }
+
+    public Visita[] getVisitas() {
+        return visitas;
+    }
+
+    public int getMaxNumClientes() {
+        return maxNumClientes;
+    }
+
+    public int getMaxNumVisitas() {
+        return maxNumVisitas;
+    }
+
     public Cliente getCliente(String DNI){
-        for (int i=0;i<maxNumClientes;i++){
+        for (int i=0;i<clientes.length;i++){
             if (clientes[i].getDNI().equals(DNI)){
                 System.out.println("SE HA ENCONTRADOO");
                 return clientes[i];
@@ -33,30 +65,32 @@ public class Salon {
         maxNumClientes++;
 
     }
-    public void bajacliente(String DNI){
-        Cliente cliente = getCliente(DNI);
-        if (cliente == null || !cliente.isSocio()) {
-            return;
-        }
-        cliente.setSocio(false);
-        cliente.setMembresia(null);
+    public void bajacliente(Cliente cliente){
+       for (int i=0;i<clientes.length;i++){
+           if (clientes[i]==cliente){
+               cliente.setSocio(false);
+           }
+       }
 
     }
     public void setmembresia(String DNI, String membresia){
         Cliente cliente = getCliente(DNI);
-        if (cliente == null || !cliente.isSocio()) {
+        if (cliente == null || !cliente.getSocio()) {
             return;
+        }else{
+            cliente.setMembresia(membresia);
         }
-        cliente.setMembresia(membresia);
+
     }
-    public void anadirVisita(String DNI, Date fecha, double importe) {
-        Cliente cliente = getCliente(DNI);
-        if (cliente == null || maxNumVisitas == visitas.length) {
-            return;
+    public void anadirVisita(Visita visita) {
+        if (maxNumVisitas==visitas.length){
+            return ;
         }
-        Visita visita = new Visita(cliente, fecha, importe);
-        visitas[maxNumVisitas] = visita;
+        visitas[maxNumVisitas]=visita;
         maxNumVisitas++;
+
+
+
     }
     public Visita[] getVisitasCliente(String DNI) {
         int count = 0;
@@ -66,7 +100,7 @@ public class Salon {
         }
         Visita[] visitasCliente = new Visita[maxNumVisitas];
         for (int i = 0; i < maxNumVisitas; i++) {
-            if (visitas[i].clien.getDNI().equals(DNI)) {
+            if (visitas[i].getClien().getDNI().equals(DNI)) {
                 visitasCliente[count] = visitas[i];
                 count++;
             }
@@ -74,14 +108,17 @@ public class Salon {
         return Arrays.copyOfRange(visitasCliente, 0, count);
     }
     public void mostrarClientes(){
-
-        for (Cliente cliente: clientes){
-            System.out.println(clientes.toString());
+        for (int i=0;i<clientes.length;i++){
+            System.out.println(clientes[i].toString());
         }
+
+
+
+
     }
     public void mostrarVisitas() {
-        for (Visita visita : visitas) {
-            System.out.println(visita.toString());
+        for (int i=0;i<visitas.length;i++){
+            System.out.println(visitas[i].toString());
         }
     }
 

@@ -1,24 +1,44 @@
 package Salon_belleza;
 import java.util.Date;
 public class Visita {
-    Cliente clien;
+    private Cliente clien;
     private Date fecha;
-    double importetotal;
+    private double importetotal;
 
     Visita(Cliente cl, Date fe){
         clien=cl;
         fecha=fe;
         importetotal=0;
     }
+
+    public void setClien(Cliente clien) {
+        this.clien = clien;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public void setImportetotal(double importetotal) {
+        this.importetotal = importetotal;
+    }
+    public Cliente getClien(){
+        return clien;
+    }
     Date getFecha(){
         return fecha;
     }
-    void setImporteTotal(double importe) {
+
+    public double getImportetotal() {
+        return importetotal;
+    }
+
+    void Importefinal(double importe) {
         double descuento = clien.getdescuento();
-        this.importetotal = importe - (importe * descuento);
+        importe = importe - (importe * descuento);
     }
     public String toString(){
-        return "cliente: "+clien.getNombre()+" fecha: "+fecha+" importe: "+importetotal+" ";
+        return "cliente: "+clien.toString()+" fecha: "+getFecha()+" importe: "+getImportetotal()+" ";
     }
 
 
